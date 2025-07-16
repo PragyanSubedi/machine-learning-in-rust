@@ -1,10 +1,11 @@
-#![recursion_limit = "512"]  
 mod model;
+mod inference;
 mod training;
 mod data;
 use crate::{model::ModelConfig, training::TrainingConfig};
 use burn::{
     optim::AdamConfig,
+    data::dataset::Dataset, 
 };
 use burn_autodiff::Autodiff;
 use burn_cuda::{Cuda, CudaDevice};
@@ -19,5 +20,13 @@ fn main() {
         artifact_dir,
         TrainingConfig::new(ModelConfig::new(10, 512), AdamConfig::new()),
         device.clone(),
+    );
+
+    crate::inference::infer::<MyBackend>(
+        artifact_dir,
+        device,
+        burn::data::dataset::vision::MnistDataset::test()
+            .get(42)
+            .unwrap(),
     );
 }
