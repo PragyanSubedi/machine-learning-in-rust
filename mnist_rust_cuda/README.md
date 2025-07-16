@@ -1,3 +1,5 @@
+# CUDA implementation of MNIST trainer on Rust
+
 Run the trainer using:
 
 ```
@@ -7,3 +9,5 @@ cargo add burn-autodiff
 cargo build
 cargo run --release
 ```
+
+![Training](assets/training.gif)
