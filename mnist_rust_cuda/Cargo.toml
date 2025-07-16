@@ -1,0 +1,9 @@
+[package]
+name = "mnist_rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+burn = { version = "~0.17", features = ["train", "cuda", "vision"] }
+burn-autodiff = "0.17.1"
+burn-cuda = "0.17.1"

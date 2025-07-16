@@ -2984,6 +2984,8 @@ name = "mnist_rust"
 version = "0.1.0"
 dependencies = [
  "burn",
+ "burn-autodiff",
+ "burn-cuda",
 ]
 
 [[package]]
